@@ -1,121 +1,197 @@
 .container {
+  position: relative;
   min-height: 100vh;
   padding: 0 0.5rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column;  
   align-items: center;
   height: 100vh;
+  overflow: scroll;
+  background-color: #0D2436;
+  color: #FFFFFF;
+  font-family: Roboto;
+  -ms-text-overflow: none;
+  scrollbar-width: nonn;;
+}
+
+.container::-webkit-scrollbar { 
+  display: none;
 }
 
 .main {
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer {
   width: 100%;
-  height: 100px;
-  border-top: 1px solid #eaeaea;
-  display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-.footer a {
+.subject {
+    box-sizing: border-box;
+    width: max-content;
+    margin: auto;
+    padding: 40px 0;
+}
+
+.category {
+  width: 60%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: auto;
+  margin-bottom: 30px 
 }
 
 .title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
-  text-align: center;
-}
-
-.description {
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
+  width: calc(100% - 20px);
+  margin: 10px;
+  display: flex; 
+  align-items: center;
+  height: 50px;
+  padding: 10px 15px;
+  background-color: lightslategray;
+  color: white;
   border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
-.grid {
+
+.card {
+  width: 260px;
+  background: #009B86;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;  
+  padding: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.card.disabled {
+  cursor: not-allowed;
+}
+
+.card:hover {
+  background-color: #34AC9C;
+  color: #CCCCCC;
+}
+
+.cardTitle {
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.selectNote {
+  width: 150px;
+  height: 35px;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;  
+}
+
+.button {
+  width: 150px;
+  height: 35px;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-radius: 5px;
+  background: #009B86;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
+  margin: 30px auto;
+  cursor: pointer;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
+.button:hover {
+  background: #34AC9C;
+}
+
+
+.modalContainer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  background: rgba(0,0,0,0.7);
+  z-index: 99;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+
+.modalContent {
+  position: relative;
+  width: 600px;
+  height: 450px;
+  background-color: white;
   border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  width: 45%;
+  overflow: hidden;
+  margin: auto;
+  padding: 15px;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.btnClose {
+  position: absolute;
+  color: black;
+  font-size: 20px;
+  padding: 5px;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+.btnClose:hover {
+ color: gray; 
 }
 
-.card p {
+.modalTitle {
+  width: 100;
+  text-align: center;
+  padding: 0;
   margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+  color: black;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+.list {
+  color: black;
+  list-style: none;
+  overflow: scroll;
+  height: calc(100% - 50px);
+  -ms-text-overflow: none;
+  scrollbar-width: nonn;;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
+.list::-webkit-scrollbar { 
+  display: none;
+}
+
+@media (max-width: 1000px) {
+ .title {
+   width: 100%;
+   margin: 10px 0;
+ } 
+
+ .card {
+   width: 100%;
+   margin: 10px 0;
+ }
 }
